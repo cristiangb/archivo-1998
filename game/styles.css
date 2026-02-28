@@ -124,3 +124,30 @@ code{
   color:#ffffff;
 }
 
+/* --- Secret tap zone (mobile-friendly) --- */
+.secret-wrap{
+  position: relative;
+}
+
+.secret-tap{
+  position: absolute;
+
+  /* ubicación: esquina inferior derecha de la imagen */
+  right: 10px;
+  bottom: 10px;
+
+  /* tamaño del “botón invisible” */
+  width: 64px;
+  height: 64px;
+
+  /* invisible */
+  background: transparent;
+  border: none;
+  outline: none;
+
+  /* evita highlights raros en mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
