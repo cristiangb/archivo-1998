@@ -339,7 +339,8 @@ body.audio-page{
 }
 
 .hero.rec{
-  filter: contrast(1.2) brightness(0.9) saturate(1.1);
+  filter: contrast(1.25) brightness(0.9) saturate(1.2);
+  image-rendering: pixelated;
 }
 
 
