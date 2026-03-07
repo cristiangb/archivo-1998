@@ -6,61 +6,14 @@
   <title>guason</title>
   <link rel="stylesheet" href="./styles.css"/>
 </head>
-<body class="audio-page">
+<body class="signal-page">
 
-  <audio id="noise" loop preload="auto">
-    <source src="./assets/white-noise.mp3" type="audio/mpeg">
-  </audio>
-
-  <div class="wrap">
-    <main class="card">
-
-      <div class="header">
-        <h1>ARCHIVO // 1998</h1>
-        <div class="badge">NIVEL 8: guason</div>
-      </div>
-
-      <p>El nombre no alcanza.</p>
-      <p>La cara tampoco.</p>
-
-      <div class="hr"></div>
-
-      <div class="fall-zone">
-        <div class="fall-text">SE CAE</div>
-      </div>
-
-      <div class="fall-zone">
-        <div class="fall-text fall-sub">como todo lo demás</div>
-      </div>
-
-      <div class="hr"></div>
-
-      <p class="small">tocá la pantalla</p>
-
-      <div class="footer">
-        <span><code>/game/&lt;palabra&gt;.html</code></span>
-        <span class="small">después del ruido, grabar</span>
-      </div>
-
-    </main>
-  </div>
-
-  <script>
-    const audio = document.getElementById('noise');
-    let started = false;
-
-    function startNoise() {
-      if (started) return;
-      started = true;
-      audio.volume = 0.18;
-      audio.play().catch(() => {
-        started = false;
-      });
-    }
-
-    document.addEventListener('click', startNoise, { once: true });
-    document.addEventListener('touchstart', startNoise, { once: true });
-  </script>
+  <a class="signal-screen" href="./rec.html" aria-label="continuar">
+    <div class="noise"></div>
+    <div class="noise noise-2"></div>
+    <div class="scanlines"></div>
+    <div class="signal-core"></div>
+  </a>
 
 </body>
 </html>
