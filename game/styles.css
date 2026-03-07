@@ -149,5 +149,136 @@ code{
   -webkit-tap-highlight-color: transparent;
 }
 
+/* --- glitch image (scream) --- */
+.glitch-wrap{
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  --glitch-image: none;
+}
+
+.glitch{
+  animation: glitch-jitter 2.8s infinite;
+}
+
+.glitch-wrap::before,
+.glitch-wrap::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--glitch-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 14px;
+}
+
+.glitch-wrap::before{
+  transform: translate(2px, 0);
+  mix-blend-mode: screen;
+  filter: drop-shadow(-2px 0 rgba(255, 0, 80, 0.35));
+  animation: glitch-red 2.8s infinite;
+}
+
+.glitch-wrap::after{
+  transform: translate(-2px, 0);
+  mix-blend-mode: screen;
+  filter: drop-shadow(2px 0 rgba(0, 180, 255, 0.30));
+  animation: glitch-blue 2.8s infinite;
+}
+
+@keyframes glitch-jitter{
+  0%, 84%, 100%{
+    transform: translate(0,0);
+    filter: contrast(100%) brightness(100%);
+  }
+  86%{
+    transform: translate(-1px, 1px);
+    filter: contrast(112%) brightness(104%);
+  }
+  88%{
+    transform: translate(2px, -1px);
+    filter: contrast(120%) brightness(108%);
+  }
+  90%{
+    transform: translate(-2px, 1px);
+    filter: contrast(110%) brightness(102%);
+  }
+  92%{
+    transform: translate(1px, -2px);
+    filter: contrast(118%) brightness(106%);
+  }
+  94%{
+    transform: translate(0,0);
+    filter: contrast(100%) brightness(100%);
+  }
+}
+
+@keyframes glitch-red{
+  0%, 84%, 100%{ opacity: 0; }
+  87%, 91%{ opacity: .35; }
+}
+
+@keyframes glitch-blue{
+  0%, 84%, 100%{ opacity: 0; }
+  88%, 92%{ opacity: .25; }
+}
+
+/* --- guason: texto que cae --- */
+.fall-zone{
+  position: relative;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fall-text{
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text);
+  animation: text-fall 5.5s ease-in-out infinite;
+  will-change: transform, opacity, filter;
+}
+
+@keyframes text-fall{
+  0%{
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+  65%{
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    filter: blur(0);
+  }
+  82%{
+    transform: translateY(14px) rotate(2deg);
+    opacity: 0.95;
+  }
+  92%{
+    transform: translateY(58px) rotate(7deg);
+    opacity: 0.35;
+    filter: blur(1.2px);
+  }
+  100%{
+    transform: translateY(82px) rotate(10deg);
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+/* versión más sutil para texto secundario */
+.fall-sub{
+  animation-delay: 0.5s;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+
 
 
