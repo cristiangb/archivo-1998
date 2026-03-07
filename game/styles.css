@@ -338,6 +338,11 @@ body.audio-page{
   50%, 100%{ opacity: 0.2; }
 }
 
+.hero.rec{
+  filter: contrast(1.2) brightness(0.9) saturate(1.1);
+}
+
+
 
 
 
