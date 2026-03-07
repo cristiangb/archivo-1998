@@ -378,6 +378,73 @@ body.audio-page{
   image-rendering: pixelated;
 }
 
+/* --- 000270 / coordinates page --- */
+body.coords-page{
+  margin: 0;
+  background: #000;
+  color: #f2f2f2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.coords-wrap{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.coords-box{
+  width: min(760px, 100%);
+  text-align: center;
+}
+
+.coords-hint{
+  color: #d7d7db;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  margin-bottom: 28px;
+}
+
+.coords-line{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.coords-text{
+  font-size: 28px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  user-select: all;
+}
+
+.copy-btn{
+  appearance: none;
+  border: 1px solid #3a3a3f;
+  background: #111114;
+  color: #f2f2f2;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.copy-btn:hover{
+  background: #1a1a1f;
+}
+
+.copy-msg{
+  margin-top: 18px;
+  min-height: 20px;
+  font-size: 13px;
+  color: #8f8f98;
+}
+
+
 
 
 
