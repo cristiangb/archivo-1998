@@ -377,7 +377,69 @@ body.audio-page{
   filter: contrast(1.25) brightness(0.9) saturate(1.2);
   image-rendering: pixelated;
 }
+/* --- audio / REC ambience --- */
+body.audio-page{
+  animation: room-flicker 8s infinite;
+}
 
+@keyframes room-flicker{
+  0%, 96%, 100%{
+    background: var(--bg);
+  }
+  97%{
+    background: #151518;
+  }
+  98%{
+    background: #09090a;
+  }
+  99%{
+    background: #111114;
+  }
+}
+
+/* --- REC badge --- */
+.rec-badge{
+  color:#ff5252;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.rec-dot{
+  display:inline-block;
+  width:9px;
+  height:9px;
+  margin-left:6px;
+  border-radius:50%;
+  background:#ff3b3b;
+  animation:rec-blink 1.2s infinite;
+}
+
+@keyframes rec-blink{
+  0%,45%{ opacity:1; }
+  50%,100%{ opacity:.2; }
+}
+
+/* --- REC image only --- */
+.hero.rec{
+  filter: contrast(1.25) brightness(0.9) saturate(1.2);
+}
+
+/* --- REC timer --- */
+.rec-timer-wrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.rec-timer{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: #d9d9dd;
+  text-shadow:
+    0 0 4px rgba(255,255,255,0.12),
+    0 0 12px rgba(255,0,0,0.10);
+}
 /* --- 000270 / coordinates page --- */
 body.coords-page{
   margin: 0;
@@ -443,6 +505,7 @@ body.coords-page{
   font-size: 13px;
   color: #8f8f98;
 }
+
 
 
 
