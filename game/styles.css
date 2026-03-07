@@ -280,12 +280,6 @@ code{
   }
 }
 
-/* versión más sutil para texto secundario */
-.fall-sub{
-  animation-delay: 0.5s;
-  font-size: 14px;
-  color: var(--muted);
-}
 
 .hero.full{
   width: calc(100% + 56px);
@@ -294,6 +288,54 @@ code{
   border-radius: 0;
   border-left: none;
   border-right: none;
+}
+
+.fall-sub{
+  animation-delay: 0.5s;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* --- audio / REC ambience --- */
+body.audio-page{
+  animation: room-flicker 8s infinite;
+}
+
+@keyframes room-flicker{
+  0%, 96%, 100%{
+    background: var(--bg);
+  }
+  97%{
+    background: #151518;
+  }
+  98%{
+    background: #09090a;
+  }
+  99%{
+    background: #111114;
+  }
+}
+
+.rec-badge{
+  color: #ff5252;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.rec-dot{
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: #ff3b3b;
+  animation: rec-blink 1.2s infinite;
+  vertical-align: middle;
+}
+
+@keyframes rec-blink{
+  0%, 45%{ opacity: 1; }
+  50%, 100%{ opacity: 0.2; }
 }
 
 
