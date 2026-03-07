@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>000270</title>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body class="coords-page">
+
+  <div class="coords-wrap">
+    <div class="coords-box">
+
+      <p class="coords-hint">adonde te lleve, pero solo numeros</p>
+
+      <div class="coords-line">
+        <span id="coordsText" class="coords-text">37.24804, -115.80016</span>
+        <button id="copyBtn" class="copy-btn" type="button">COPY</button>
+      </div>
+
+      <p id="copyMsg" class="copy-msg"> </p>
+
+    </div>
+  </div>
+
+  <script>
+    const copyBtn = document.getElementById("copyBtn");
+    const coordsText = document.getElementById("coordsText").textContent;
+    const copyMsg = document.getElementById("copyMsg");
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(coordsText);
+        copyMsg.textContent = "copiado";
+      } catch (err) {
+        copyMsg.textContent = "no se pudo copiar";
+      }
+    });
+  </script>
+
+</body>
+</html>
