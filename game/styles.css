@@ -158,7 +158,7 @@ code{
 }
 
 .glitch{
-  animation: glitch-jitter 2.8s infinite;
+  animation: glitch-jitter 1.9s infinite;
 }
 
 .glitch-wrap::before,
@@ -176,54 +176,62 @@ code{
 }
 
 .glitch-wrap::before{
-  transform: translate(2px, 0);
+  transform: translate(4px, 0);
   mix-blend-mode: screen;
-  filter: drop-shadow(-2px 0 rgba(255, 0, 80, 0.35));
-  animation: glitch-red 2.8s infinite;
+  filter: drop-shadow(-4px 0 rgba(255, 0, 80, 0.45));
+  animation: glitch-red 1.9s infinite;
 }
 
 .glitch-wrap::after{
-  transform: translate(-2px, 0);
+  transform: translate(-4px, 0);
   mix-blend-mode: screen;
-  filter: drop-shadow(2px 0 rgba(0, 180, 255, 0.30));
-  animation: glitch-blue 2.8s infinite;
+  filter: drop-shadow(4px 0 rgba(0, 180, 255, 0.40));
+  animation: glitch-blue 1.9s infinite;
 }
 
 @keyframes glitch-jitter{
-  0%, 84%, 100%{
+  0%, 70%, 100%{
     transform: translate(0,0);
     filter: contrast(100%) brightness(100%);
   }
-  86%{
-    transform: translate(-1px, 1px);
-    filter: contrast(112%) brightness(104%);
-  }
-  88%{
-    transform: translate(2px, -1px);
-    filter: contrast(120%) brightness(108%);
-  }
-  90%{
-    transform: translate(-2px, 1px);
-    filter: contrast(110%) brightness(102%);
-  }
-  92%{
-    transform: translate(1px, -2px);
+  72%{
+    transform: translate(-2px, 2px);
     filter: contrast(118%) brightness(106%);
   }
-  94%{
+  74%{
+    transform: translate(4px, -2px);
+    filter: contrast(132%) brightness(112%);
+  }
+  76%{
+    transform: translate(-4px, 2px);
+    filter: contrast(120%) brightness(104%);
+  }
+  78%{
+    transform: translate(2px, -4px);
+    filter: contrast(128%) brightness(110%);
+  }
+  80%{
+    transform: translate(-3px, 1px);
+    filter: contrast(122%) brightness(106%);
+  }
+  82%{
+    transform: translate(3px, -1px);
+    filter: contrast(130%) brightness(112%);
+  }
+  84%{
     transform: translate(0,0);
     filter: contrast(100%) brightness(100%);
   }
 }
 
 @keyframes glitch-red{
-  0%, 84%, 100%{ opacity: 0; }
-  87%, 91%{ opacity: .35; }
+  0%, 70%, 100%{ opacity: 0; }
+  73%, 77%, 81%{ opacity: .45; }
 }
 
 @keyframes glitch-blue{
-  0%, 84%, 100%{ opacity: 0; }
-  88%, 92%{ opacity: .25; }
+  0%, 70%, 100%{ opacity: 0; }
+  74%, 78%, 82%{ opacity: .35; }
 }
 
 /* --- guason: texto que cae --- */
@@ -278,6 +286,16 @@ code{
   font-size: 14px;
   color: var(--muted);
 }
+
+.hero.full{
+  width: calc(100% + 56px);
+  max-width: none;
+  margin: 18px 0 18px -28px;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
 
 
 
