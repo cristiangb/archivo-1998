@@ -2,50 +2,112 @@
 <html lang="es">
 
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>rec</title>
-
-<link rel="stylesheet" href="./styles.css"/>
-
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>rec</title>
+  <link rel="stylesheet" href="./styles.css"/>
 </head>
 
 <body class="audio-page">
 
-<div class="wrap">
+  <div class="wrap">
+    <main class="card">
 
-<main class="card">
+      <div class="header">
+        <h1>ARCHIVO // 1998</h1>
+        <div class="badge rec-badge">REC <span class="rec-dot"></span></div>
+      </div>
 
-<div class="header">
-<h1>ARCHIVO // 1998</h1>
-<div class="badge rec-badge">REC <span class="rec-dot"></span></div>
-</div>
+      <p>Los archivos se leen.</p>
+      <p>Esto no.</p>
 
-<p>Los archivos se leen.</p>
-<p>Esto no.</p>
+      <div class="hr"></div>
 
-<div class="hr"></div>
+      <img id="recGif" class="hero rec" src="./assets/rec.gif" alt=""/>
 
-<img class="hero rec" src="./assets/rec.gif" alt=""/>
+      <div class="hr"></div>
 
-<div class="hr"></div>
+      <div class="rec-timer-wrap">
+        <div id="recTimer" class="rec-timer">00:00:00</div>
+      </div>
 
-<p class="small">
-La cámara siempre llega tarde.
-</p>
+      <div class="hr"></div>
 
-<p class="small">
-Pero igual deja prueba.
-</p>
+      <p class="small">La cámara siempre llega tarde.</p>
+      <p class="small">Pero igual deja prueba.</p>
+      <p class="small">El último cuadro deja el código.</p>
 
-<div class="footer">
-<span><code>/game/&lt;palabra&gt;.html</code></span>
-<span class="small">si está grabado, existe</span>
-</div>
+      <div class="footer">
+        <span><code>/game/&lt;palabra&gt;.html</code></span>
+        <span class="small">cuando termina, queda el código</span>
+      </div>
 
-</main>
+    </main>
+  </div>
 
-</div>
+  <script>
+    // Inicio del contador
+    const startMinutes = 0;
+    const startSeconds = 0;
+    const startCentiseconds = 0;
+
+    // Duración total del GIF en milisegundos
+    // 2.07 segundos = 2070 ms
+    const totalDurationMs = 2070;
+
+    const timerEl = document.getElementById("recTimer");
+    const gif = document.getElementById("recGif");
+
+    function pad2(n) {
+      return String(n).padStart(2, "0");
+    }
+
+    function formatTime(totalCentiseconds) {
+      const minutes = Math.floor(totalCentiseconds / 6000);
+      const seconds = Math.floor((totalCentiseconds % 6000) / 100);
+      const centiseconds = totalCentiseconds % 100;
+      return `${pad2(minutes)}:${pad2(seconds)}:${pad2(centiseconds)}`;
+    }
+
+    const startTotalCentiseconds =
+      startMinutes * 6000 +
+      startSeconds * 100 +
+      startCentiseconds;
+
+    const totalDurationCentiseconds = Math.round(totalDurationMs / 10);
+
+    let started = false;
+
+    function startTimer() {
+      if (started) return;
+      started = true;
+
+      const startTime = performance.now();
+
+      function update(now) {
+        const elapsedMs = now - startTime;
+        const elapsedCentiseconds = Math.min(
+          Math.round(elapsedMs / 10),
+          totalDurationCentiseconds
+        );
+
+        const currentTotal = startTotalCentiseconds + elapsedCentiseconds;
+        timerEl.textContent = formatTime(currentTotal);
+
+        if (elapsedCentiseconds < totalDurationCentiseconds) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    if (gif.complete) {
+      startTimer();
+    } else {
+      gif.addEventListener("load", startTimer, { once: true });
+    }
+  </script>
 
 </body>
 
