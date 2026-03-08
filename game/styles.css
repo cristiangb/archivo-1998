@@ -562,15 +562,32 @@ body.black-page{
   height:auto;
 }
 
-/* --- 0815 / ceniza cayendo --- */
-/* --- 0815 / ceniza cayendo (versión visible) --- */
-body.ash-page{
+/* --- 0815 con video de ceniza --- */
+html, body{
   margin: 0;
+  padding: 0;
+}
+
+body.ash-video-page{
   min-height: 100vh;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(to bottom, #141414 0%, #050505 60%, #000 100%);
+  background: #000 !important;
   color: #ececef;
+}
+
+.ash-video{
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.28;
+  mix-blend-mode: screen;
+  filter: saturate(0) brightness(1.45) contrast(1.15) blur(0.8px);
+  background: #000;
 }
 
 .ash-wrap{
@@ -609,27 +626,3 @@ body.ash-page{
 .ash-line.faint{
   color: #8f8f98;
 }
-
-.ash-video{
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-
-  filter:
-    saturate(0)
-    brightness(1.6)
-    contrast(1.2)
-    blur(0.4px);
-}
-
-
-
-
-
-
-
-
-
