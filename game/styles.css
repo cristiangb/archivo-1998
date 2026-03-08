@@ -745,31 +745,23 @@ body.ceniza-page{
 }
 
 /* GUASON / WHITE NOISE */
-
 body.noise-page{
-margin:0;
-background:#000;
-overflow:hidden;
+  margin:0;
+  background:#000;
+  overflow:hidden;
 }
 
 .noise-screen{
-position:fixed;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
 }
 
 .noise-gif{
-width:100vw;
-height:100vh;
-object-fit:cover;
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
 }
-
-
-
-
-
-
-
-
