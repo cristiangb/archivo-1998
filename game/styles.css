@@ -755,3 +755,18 @@ body.expte-page{
 }
 
 
+/* --- ceniza / transición muda --- */
+body.ceniza-page{
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+}
+
+.ceniza-tap{
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: block;
+}
+
+
