@@ -1,34 +1,42 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>guason</title>
-<link rel="stylesheet" href="./styles.css?v=9">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>guason</title>
+  <link rel="stylesheet" href="./styles.css?v=10">
 </head>
-
 <body class="noise-page">
 
-<a href="./rec.html" class="noise-screen">
+  <div id="noiseScreen" class="noise-screen">
+    <img src="./assets/white.gif" class="noise-gif" alt="noise">
+  </div>
 
-<img src="./assets/white.gif" class="noise-gif" alt="noise">
+  <audio id="noiseAudio" preload="auto">
+    <source src="./assets/white-noise.mp3" type="audio/mpeg">
+  </audio>
 
-</a>
+  <script>
+    const screen = document.getElementById("noiseScreen");
+    const audio = document.getElementById("noiseAudio");
+    let triggered = false;
 
-<audio id="noiseAudio" autoplay loop>
-  <source src="./assets/white-noise.mp3" type="audio/mpeg">
-</audio>
+    function goNext() {
+      if (triggered) return;
+      triggered = true;
 
-<script>
-const audio = document.getElementById("noiseAudio");
+      audio.volume = 0.22;
 
-/* en mobile el autoplay suele bloquearse.
-   entonces el primer tap lo desbloquea */
+      audio.play().catch(() => {});
 
-document.body.addEventListener("click", () => {
-  audio.play().catch(()=>{});
-}, {once:true});
-</script>
+      setTimeout(() => {
+        window.location.href = "./rec.html";
+      }, 900);
+    }
+
+    screen.addEventListener("click", goNext, { once: true });
+    screen.addEventListener("touchstart", goNext, { once: true });
+  </script>
 
 </body>
 </html>
