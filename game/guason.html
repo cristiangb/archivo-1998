@@ -4,35 +4,40 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>guason</title>
-  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="stylesheet" href="./styles.css?v=7"/>
 </head>
-<body class="signal-page">
+<body class="tv-page">
 
-  <audio id="noise" loop preload="auto">
-    <source src="./assets/white-noise.mp3" type="audio/mpeg">
+  <audio id="tvNoise" preload="auto">
+    <source src="./assets/white-noise.mp3?v=2" type="audio/mpeg">
   </audio>
 
-  <a href="./rec.html" class="signal-screen" aria-label="continuar">
-    <div class="tv-noise tv-noise-1"></div>
-    <div class="tv-noise tv-noise-2"></div>
-    <div class="tv-scanlines"></div>
-  </a>
+  <div id="tvScreen" class="tv-screen">
+    <div class="tv-static-layer tv-static-a"></div>
+    <div class="tv-static-layer tv-static-b"></div>
+    <div class="tv-lines"></div>
+  </div>
 
   <script>
-    const audio = document.getElementById("noise");
-    let started = false;
+    const screen = document.getElementById("tvScreen");
+    const audio = document.getElementById("tvNoise");
+    let triggered = false;
 
-    function startNoise() {
-      if (started) return;
-      started = true;
-      audio.volume = 0.16;
-      audio.play().catch(() => {
-        started = false;
-      });
+    function goNext() {
+      if (triggered) return;
+      triggered = true;
+
+      audio.volume = 0.22;
+
+      audio.play().catch(() => {});
+
+      setTimeout(() => {
+        window.location.href = "./rec.html";
+      }, 700);
     }
 
-    document.addEventListener("click", startNoise, { once: true });
-    document.addEventListener("touchstart", startNoise, { once: true });
+    screen.addEventListener("click", goNext, { once: true });
+    screen.addEventListener("touchstart", goNext, { once: true });
   </script>
 
 </body>
