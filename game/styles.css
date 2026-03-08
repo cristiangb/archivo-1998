@@ -634,3 +634,124 @@ body.ash-video-page{
   cursor: pointer;
 }
 
+/* --- expediente / cierre de capítulo --- */
+body.expte-page{
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #d9d9de;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  overflow: hidden;
+}
+
+.expte-wrap{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.expte-box{
+  position: relative;
+  width: min(760px, 100%);
+  padding: 44px 38px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.02);
+  text-align: center;
+  letter-spacing: 2px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03) inset,
+    0 0 30px rgba(255,255,255,0.03);
+}
+
+.expte-line{
+  margin: 12px 0;
+  font-size: clamp(14px, 2vw, 20px);
+  color: #cfcfd6;
+}
+
+.expte-line.strong{
+  color: #f1f1f4;
+  font-weight: 700;
+}
+
+.expte-line.faint{
+  color: #8c8c95;
+  letter-spacing: 3px;
+  margin-top: 22px;
+}
+
+.expte-sep{
+  width: 100%;
+  height: 1px;
+  margin: 24px 0 8px 0;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255,255,255,0.18) 20%,
+    rgba(255,255,255,0.18) 80%,
+    transparent 100%
+  );
+}
+
+/* glitch leve documental */
+.glitch-doc{
+  animation: doc-flicker 7s infinite;
+}
+
+.glitch-doc::before,
+.glitch-doc::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.glitch-doc::before{
+  border: 1px solid rgba(255, 0, 80, 0.12);
+  transform: translate(2px, 0);
+  animation: doc-red-shift 7s infinite;
+}
+
+.glitch-doc::after{
+  border: 1px solid rgba(0, 180, 255, 0.10);
+  transform: translate(-2px, 0);
+  animation: doc-blue-shift 7s infinite;
+}
+
+@keyframes doc-flicker{
+  0%, 93%, 100%{
+    opacity: 1;
+    filter: brightness(1) contrast(1);
+  }
+  94%{
+    opacity: 0.96;
+    filter: brightness(1.05) contrast(1.06);
+  }
+  95%{
+    opacity: 1;
+    filter: brightness(0.98) contrast(1.02);
+  }
+  96%{
+    opacity: 0.97;
+    filter: brightness(1.08) contrast(1.1);
+  }
+  97%{
+    opacity: 1;
+    filter: brightness(1) contrast(1);
+  }
+}
+
+@keyframes doc-red-shift{
+  0%, 93%, 100%{ opacity: 0; }
+  94%, 96%{ opacity: 0.6; }
+}
+
+@keyframes doc-blue-shift{
+  0%, 93%, 100%{ opacity: 0; }
+  95%, 97%{ opacity: 0.45; }
+}
+
+
