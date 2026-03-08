@@ -626,3 +626,11 @@ body.ash-video-page{
 .ash-line.faint{
   color: #8f8f98;
 }
+
+.tap-area{
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  cursor: pointer;
+}
+
