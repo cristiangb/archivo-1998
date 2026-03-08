@@ -563,15 +563,14 @@ body.black-page{
 }
 
 /* --- 0815 / ceniza cayendo --- */
+/* --- 0815 / ceniza cayendo (versión visible) --- */
 body.ash-page{
   margin: 0;
   min-height: 100vh;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 35%, rgba(255,255,255,0.05), rgba(0,0,0,0) 30%),
-    linear-gradient(to bottom, #111114 0%, #060607 55%, #000 100%);
-  color: #ececef;
   position: relative;
+  background: linear-gradient(to bottom, #141414 0%, #050505 60%, #000 100%);
+  color: #ececef;
 }
 
 .ash-wrap{
@@ -611,61 +610,61 @@ body.ash-page{
   color: #8f8f98;
 }
 
-/* capas de ceniza */
-.ash-layer{
+.ash{
   position: fixed;
-  inset: -20% 0 0 0;
+  inset: -30% 0 0 0;
   pointer-events: none;
   z-index: 1;
   background-repeat: repeat;
+}
+
+.ash1{
+  opacity: 0.30;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.75) 0 2px, transparent 2.8px),
+    radial-gradient(circle, rgba(255,255,255,0.45) 0 1.3px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,0.25) 0 1px, transparent 1.8px);
+  background-size: 110px 95px, 160px 130px, 90px 140px;
+  background-position: 0 0, 35px 60px, 70px 20px;
+  animation: ashFall1 11s linear infinite;
+}
+
+.ash2{
   opacity: 0.22;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.65) 0 1.7px, transparent 2.4px),
+    radial-gradient(circle, rgba(255,255,255,0.35) 0 1.1px, transparent 1.8px),
+    radial-gradient(circle, rgba(255,255,255,0.20) 0 0.9px, transparent 1.5px);
+  background-size: 75px 65px, 120px 100px, 55px 85px;
+  background-position: 20px 10px, 80px 40px, 10px 70px;
+  animation: ashFall2 8s linear infinite;
 }
 
-.ash-back{
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.22) 0 1px, transparent 1.2px),
-    radial-gradient(circle, rgba(255,255,255,0.12) 0 1px, transparent 1.5px);
-  background-size: 110px 110px, 170px 170px;
-  animation: ash-fall-slow 22s linear infinite;
-  filter: blur(0.3px);
-}
-
-.ash-mid{
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.18) 0 1.4px, transparent 1.8px),
-    radial-gradient(circle, rgba(255,255,255,0.10) 0 1px, transparent 1.4px);
-  background-size: 85px 85px, 130px 130px;
-  animation: ash-fall-mid 15s linear infinite;
-  opacity: 0.18;
-  filter: blur(0.6px);
-}
-
-.ash-front{
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.22) 0 1.8px, transparent 2.2px),
-    radial-gradient(circle, rgba(255,255,255,0.12) 0 1.3px, transparent 1.8px);
-  background-size: 60px 60px, 95px 95px;
-  animation: ash-fall-fast 9s linear infinite;
+.ash3{
   opacity: 0.14;
-  filter: blur(0.9px);
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.50) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle, rgba(255,255,255,0.28) 0 0.9px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,255,255,0.16) 0 0.7px, transparent 1.2px);
+  background-size: 42px 38px, 68px 55px, 95px 70px;
+  background-position: 0 15px, 25px 45px, 60px 5px;
+  animation: ashFall3 5.2s linear infinite;
 }
 
-@keyframes ash-fall-slow{
-  from { transform: translateY(-8%) translateX(0); }
-  to   { transform: translateY(18%) translateX(1.5%); }
+@keyframes ashFall1{
+  from { transform: translateY(-12%) translateX(0) rotate(0.5deg); }
+  to   { transform: translateY(120%) translateX(28px) rotate(-1deg); }
 }
 
-@keyframes ash-fall-mid{
-  from { transform: translateY(-10%) translateX(0); }
-  to   { transform: translateY(24%) translateX(-2%); }
+@keyframes ashFall2{
+  from { transform: translateY(-18%) translateX(0) rotate(-0.5deg); }
+  to   { transform: translateY(120%) translateX(-35px) rotate(1deg); }
 }
 
-@keyframes ash-fall-fast{
-  from { transform: translateY(-12%) translateX(0); }
-  to   { transform: translateY(30%) translateX(2.5%); }
+@keyframes ashFall3{
+  from { transform: translateY(-22%) translateX(0) rotate(0deg); }
+  to   { transform: translateY(120%) translateX(18px) rotate(-0.8deg); }
 }
-
-
 
 
 
