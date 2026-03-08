@@ -562,6 +562,110 @@ body.black-page{
   height:auto;
 }
 
+/* --- 0815 / ceniza cayendo --- */
+body.ash-page{
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255,255,255,0.05), rgba(0,0,0,0) 30%),
+    linear-gradient(to bottom, #111114 0%, #060607 55%, #000 100%);
+  color: #ececef;
+  position: relative;
+}
+
+.ash-wrap{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.ash-text{
+  text-align: center;
+  max-width: 760px;
+}
+
+.ash-time{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(42px, 8vw, 96px);
+  letter-spacing: 6px;
+  margin: 0 0 28px 0;
+  color: #f4f4f4;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.08),
+    0 0 24px rgba(255,255,255,0.04);
+}
+
+.ash-line{
+  margin: 10px 0;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.6;
+  color: #d6d6da;
+}
+
+.ash-line.faint{
+  color: #8f8f98;
+}
+
+/* capas de ceniza */
+.ash-layer{
+  position: fixed;
+  inset: -20% 0 0 0;
+  pointer-events: none;
+  z-index: 1;
+  background-repeat: repeat;
+  opacity: 0.22;
+}
+
+.ash-back{
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.22) 0 1px, transparent 1.2px),
+    radial-gradient(circle, rgba(255,255,255,0.12) 0 1px, transparent 1.5px);
+  background-size: 110px 110px, 170px 170px;
+  animation: ash-fall-slow 22s linear infinite;
+  filter: blur(0.3px);
+}
+
+.ash-mid{
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.18) 0 1.4px, transparent 1.8px),
+    radial-gradient(circle, rgba(255,255,255,0.10) 0 1px, transparent 1.4px);
+  background-size: 85px 85px, 130px 130px;
+  animation: ash-fall-mid 15s linear infinite;
+  opacity: 0.18;
+  filter: blur(0.6px);
+}
+
+.ash-front{
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.22) 0 1.8px, transparent 2.2px),
+    radial-gradient(circle, rgba(255,255,255,0.12) 0 1.3px, transparent 1.8px);
+  background-size: 60px 60px, 95px 95px;
+  animation: ash-fall-fast 9s linear infinite;
+  opacity: 0.14;
+  filter: blur(0.9px);
+}
+
+@keyframes ash-fall-slow{
+  from { transform: translateY(-8%) translateX(0); }
+  to   { transform: translateY(18%) translateX(1.5%); }
+}
+
+@keyframes ash-fall-mid{
+  from { transform: translateY(-10%) translateX(0); }
+  to   { transform: translateY(24%) translateX(-2%); }
+}
+
+@keyframes ash-fall-fast{
+  from { transform: translateY(-12%) translateX(0); }
+  to   { transform: translateY(30%) translateX(2.5%); }
+}
+
+
 
 
 
