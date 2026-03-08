@@ -8,12 +8,32 @@
 </head>
 <body class="signal-page">
 
-  <a class="signal-screen" href="./rec.html" aria-label="continuar">
-    <div class="noise"></div>
-    <div class="noise noise-2"></div>
-    <div class="scanlines"></div>
-    <div class="signal-core"></div>
+  <audio id="noise" loop preload="auto">
+    <source src="./assets/white-noise.mp3" type="audio/mpeg">
+  </audio>
+
+  <a href="./rec.html" class="signal-screen" aria-label="continuar">
+    <div class="tv-noise tv-noise-1"></div>
+    <div class="tv-noise tv-noise-2"></div>
+    <div class="tv-scanlines"></div>
   </a>
+
+  <script>
+    const audio = document.getElementById("noise");
+    let started = false;
+
+    function startNoise() {
+      if (started) return;
+      started = true;
+      audio.volume = 0.16;
+      audio.play().catch(() => {
+        started = false;
+      });
+    }
+
+    document.addEventListener("click", startNoise, { once: true });
+    document.addEventListener("touchstart", startNoise, { once: true });
+  </script>
 
 </body>
 </html>
