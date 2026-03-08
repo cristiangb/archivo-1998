@@ -151,6 +151,7 @@ code{
 
 /* --- SCREAM --- */
 
+/* --- SCREAM --- */
 body.scream-page{
   margin:0;
   background:#000;
@@ -178,26 +179,20 @@ body.scream-page{
   bottom:7vh;
   right:6vw;
   max-width:360px;
-
   font-size:clamp(14px,1.8vw,18px);
   line-height:1.4;
-
   color:#d6d6db;
-
   opacity:0.75;
-
   letter-spacing:0.3px;
-
   text-align:right;
-
   text-shadow:0 0 8px rgba(0,0,0,0.8);
 }
 
 .asylum-flash{
   position:absolute;
   inset:0;
-  width:100%;
-  height:100%;
+  width:100vw;
+  height:100vh;
   object-fit:cover;
   opacity:0;
   pointer-events:none;
@@ -205,30 +200,26 @@ body.scream-page{
   animation:asylumFlash 9s infinite;
 }
 
-@keyframes asylumFlash{
+@keyframes scream-glitch{
+  0%,92%,100%{ transform:translate(0); }
+  93%{ transform:translate(-2px,1px); }
+  94%{ transform:translate(2px,-1px); }
+  95%{ transform:translate(-1px,2px); }
+  96%{ transform:translate(1px,-2px); }
+}
 
+@keyframes asylumFlash{
   0%,93%,100%{
     opacity:0;
     transform:scale(1);
   }
-
   94%{
     opacity:0.25;
     transform:scale(1.02);
   }
-
-  95%{
-    opacity:0.05;
-  }
-
-  96%{
-    opacity:0.22;
-  }
-
-  97%{
-    opacity:0;
-  }
-
+  95%{ opacity:0.05; }
+  96%{ opacity:0.22; }
+  97%{ opacity:0; }
 }
 /* --- GUASON / fuera de señal --- */
 body.signal-page{
@@ -764,6 +755,7 @@ body.ceniza-page{
   z-index: 999;
   display: block;
 }
+
 
 
 
