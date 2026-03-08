@@ -518,6 +518,22 @@ body.coords-page{
   color: #8f8f98;
 }
 
+body.black-page{
+  margin:0;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+}
+
+.full-image{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+
 
 
 
