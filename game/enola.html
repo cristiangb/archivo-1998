@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>enola</title>
+<link rel="stylesheet" href="./styles.css"/>
+</head>
+
+<body class="black-page">
+
+<div class="audio-wrap">
+
+<button id="playBtn" class="audio-btn">PLAY</button>
+
+<audio id="audioTrack" loop>
+  <source src="./assets/track01.mp3" type="audio/mpeg">
+</audio>
+
+<p class="audio-hint">Escuchá con atención.</p>
+
+</div>
+
+<script>
+
+const btn = document.getElementById("playBtn");
+const audio = document.getElementById("audioTrack");
+
+btn.addEventListener("click", () => {
+
+  if(audio.paused){
+    audio.play();
+    btn.textContent = "STOP";
+  } else {
+    audio.pause();
+    btn.textContent = "PLAY";
+  }
+
+});
+
+</script>
+
+</body>
+</html>
