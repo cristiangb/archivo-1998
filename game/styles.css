@@ -548,6 +548,21 @@ body.black-page{
   display:block;
 }
 
+.image-wrap{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#000;
+  padding:20px;
+}
+
+.hero-img{
+  max-width:100%;
+  height:auto;
+}
+
+
 
 
 
